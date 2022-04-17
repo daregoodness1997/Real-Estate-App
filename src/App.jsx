@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import api from './api';
 import './App.css';
-const apiKey = '680ec0ce0amshb5094a6d52a0d98p1f34efjsn538a7176f19f';
+let apiKey = import.meta.env.VITE_PUBLIC_RAPIDAPI_KEY;
 
 function App() {
   const [sort, setSort] = useState(null);
