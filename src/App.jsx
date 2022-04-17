@@ -53,15 +53,22 @@ function App() {
     }
   };
 
+  const getProperties = async () => {
+    try {
+      const response = await api.getProperties(stateCode, city, sort, beds);
+      setResponse(response);
+      console.log('response', response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   console.log(response);
   const onSubmit = async e => {
     e.preventDefault(); // Allow enter key to submit form
     e.stopPropagation();
     // Make Properties API Call
-    const response = await api.getProperties(stateCode, city, sort, beds);
-    setResponse(response);
-
-    console.log('response', response);
+    getProperties();
   };
 
   const sortOptions = [
